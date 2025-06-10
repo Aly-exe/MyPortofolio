@@ -205,7 +205,7 @@ class _PortfolioHomePageState extends State<PortfolioHomePage>
   SliverToBoxAdapter _buildHeroSection() {
     return SliverToBoxAdapter(
       child: Container(
-        height: MediaQuery.of(context).size.height * 0.9,
+        height: MediaQuery.of(context).size.width <= 400 ?MediaQuery.of(context).size.height * 1.25:MediaQuery.of(context).size.height * 0.9,
         decoration: BoxDecoration(
           gradient: LinearGradient(
             colors: [navyColor, skyBlueColor],
@@ -217,7 +217,7 @@ class _PortfolioHomePageState extends State<PortfolioHomePage>
           children: [
             Positioned(
               top: 50,
-              right: 50,
+              right:MediaQuery.of(context).size.width <= 400 ?30: 50,
               child: AnimatedBuilder(
                 animation: _controller,
                 builder: (_, child) {
@@ -232,7 +232,7 @@ class _PortfolioHomePageState extends State<PortfolioHomePage>
             ),
             Positioned(
               top: 50,
-              left: 100,
+              left: MediaQuery.of(context).size.width <= 400 ?40:100,
               child: AnimatedBuilder(
                 animation: _controller,
                 builder: (_, child) {
@@ -247,7 +247,7 @@ class _PortfolioHomePageState extends State<PortfolioHomePage>
             ),
             Positioned(
               top: 250,
-              left: MediaQuery.of(context).size.width * 0.9,
+              left: MediaQuery.of(context).size.width <= 400 ?150:MediaQuery.of(context).size.width * 0.9,
               child: AnimatedBuilder(
                 animation: _controller,
                 builder: (_, child) {
@@ -302,7 +302,7 @@ class _PortfolioHomePageState extends State<PortfolioHomePage>
                   ),
                   const SizedBox(height: 10),
                   const Text(
-                    'Software Engineer (Flutter Developer)',
+                    'Software Engineer\n (Flutter Developer)',
                     style: TextStyle(
                       color: Colors.white,
                       fontSize: 24,
@@ -313,7 +313,7 @@ class _PortfolioHomePageState extends State<PortfolioHomePage>
                   SizedBox(
                     width: MediaQuery.of(context).size.width * 0.6,
                     child: const Text(
-                      'Software Engineer as Mobile App Developer( Flutter Developer) \n Make a responsive mobile Apps , web applications and Desktop applictations with Flutter. Passionate about Develope perfect UI/UX , Build App with Best Performance , High level of Security and clean code architecture.',
+                      'Software Engineer as \nMobile App Developer\n( Flutter Developer) \n Make a responsive mobile Apps , web applications and Desktop applictations with Flutter. Passionate about Develope perfect UI/UX , Build App with Best Performance , High level of Security and clean code architecture.',
                       textAlign: TextAlign.center,
                       style: TextStyle(
                         color: Colors.white,
