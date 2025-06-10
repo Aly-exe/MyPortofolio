@@ -302,7 +302,7 @@ class _PortfolioHomePageState extends State<PortfolioHomePage>
                   ),
                   const SizedBox(height: 10),
                   const Text(
-                    'Software Engineer\n (Flutter Developer)',
+                    'Software Engineer\n(Flutter Developer)',
                     style: TextStyle(
                       color: Colors.white,
                       fontSize: 24,
