@@ -496,6 +496,7 @@ class _PortfolioHomePageState extends State<PortfolioHomePage>
   SliverToBoxAdapter _buildContactSection() {
     return SliverToBoxAdapter(
       child: Container(
+        
         padding: const EdgeInsets.symmetric(vertical: 80, horizontal: 20),
         color: navyColor,
         child: Column(
