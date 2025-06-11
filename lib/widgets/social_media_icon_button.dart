@@ -12,7 +12,7 @@ class SocialMediaIconButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return IconButton(
-      icon: FaIcon(icon, size: 30, color:iconColor),
+      icon: FaIcon(icon, size: 25, color:iconColor),
       color: navyColor,
       onPressed: () async {
         await launchUrl(

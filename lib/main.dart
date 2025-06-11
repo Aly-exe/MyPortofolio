@@ -287,6 +287,7 @@ class _PortfolioHomePageState extends State<PortfolioHomePage>
                   const SizedBox(height: 30),
                   Text(
                     'ALi Sayed Raslan',
+                    textAlign: TextAlign.center,
                     style: TextStyle(
                       color: Colors.white,
                       fontSize: 40,
@@ -302,7 +303,8 @@ class _PortfolioHomePageState extends State<PortfolioHomePage>
                   ),
                   const SizedBox(height: 10),
                   const Text(
-                    'Software Engineer\n(Flutter Developer)',
+                    'Software Engineer\n (Flutter Developer)',
+                    textAlign: TextAlign.center,
                     style: TextStyle(
                       color: Colors.white,
                       fontSize: 24,
@@ -322,32 +324,32 @@ class _PortfolioHomePageState extends State<PortfolioHomePage>
                       ),
                     ),
                   ),
-                  const SizedBox(height: 40),
-                  ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.white,
-                      foregroundColor: navyColor,
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 30, vertical: 15),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(30),
-                      ),
-                    ),
-                    onPressed: () {
-                      _scrollController.animateTo(
-                        MediaQuery.of(context).size.height * 3.5,
-                        duration: const Duration(milliseconds: 500),
-                        curve: Curves.easeInOut,
-                      );
-                    },
-                    child: const Text(
-                      'Hire Me',
-                      style: TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ),
+                  // const SizedBox(height: 40),
+                  // ElevatedButton(
+                  //   style: ElevatedButton.styleFrom(
+                  //     backgroundColor: Colors.white,
+                  //     foregroundColor: navyColor,
+                  //     padding: const EdgeInsets.symmetric(
+                  //         horizontal: 30, vertical: 15),
+                  //     shape: RoundedRectangleBorder(
+                  //       borderRadius: BorderRadius.circular(30),
+                  //     ),
+                  //   ),
+                  //   onPressed: () {
+                  //     _scrollController.animateTo(
+                  //       MediaQuery.of(context).size.height * 3.5,
+                  //       duration: const Duration(milliseconds: 500),
+                  //       curve: Curves.easeInOut,
+                  //     );
+                  //   },
+                  //   child: const Text(
+                  //     'Hire Me',
+                  //     style: TextStyle(
+                  //       fontSize: 18,
+                  //       fontWeight: FontWeight.bold,
+                  //     ),
+                  //   ),
+                  // ),
                 ],
               ),
             ),
@@ -496,7 +498,6 @@ class _PortfolioHomePageState extends State<PortfolioHomePage>
   SliverToBoxAdapter _buildContactSection() {
     return SliverToBoxAdapter(
       child: Container(
-        
         padding: const EdgeInsets.symmetric(vertical: 80, horizontal: 20),
         color: navyColor,
         child: Column(
