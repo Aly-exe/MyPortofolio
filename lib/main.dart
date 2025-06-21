@@ -102,13 +102,13 @@ class _PortfolioHomePageState extends State<PortfolioHomePage>
 
   SliverAppBar _buildAppBar() {
     return SliverAppBar(
-      expandedHeight: 100.0,
+      expandedHeight: 80.0,
       backgroundColor: navyColor,
       floating: true,
       pinned: true,
       flexibleSpace: FlexibleSpaceBar(
         title: Padding(
-          padding: const EdgeInsets.all(8.0),
+          padding: const EdgeInsets.symmetric(horizontal:8.0),
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
@@ -303,7 +303,7 @@ class _PortfolioHomePageState extends State<PortfolioHomePage>
                   ),
                   const SizedBox(height: 10),
                   const Text(
-                    'Software Engineer\n (Flutter Developer)',
+                    'Software Engineer\n(Flutter Developer)',
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       color: Colors.white,
