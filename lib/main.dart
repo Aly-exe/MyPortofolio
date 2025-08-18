@@ -1,3 +1,4 @@
+import "dart:html" as html ;
 import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
@@ -7,7 +8,9 @@ import 'package:my_portofoli/widgets/contact_form.dart';
 import 'package:my_portofoli/widgets/social_media_icons.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+
 void main() {
+  html.document.getElementById("loader")!.remove(); // to remove loader
   runApp(const MyApp());
 }
 
