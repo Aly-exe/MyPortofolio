@@ -900,7 +900,7 @@ SliverToBoxAdapter _buildMilitarySection(context) {
           Text(
             "Remaining  Days = ${remiderDays} Day",
             style: TextStyle(
-                fontSize: 25,
+                fontSize: 22,
                 fontWeight: FontWeight.bold,
                 color: Color(0xFF001F3F)),
           ),
@@ -908,7 +908,7 @@ SliverToBoxAdapter _buildMilitarySection(context) {
           Text(
             "Remaining  Weeks = ${reminderWeeks} Week",
             style: TextStyle(
-                fontSize: 25,
+                fontSize: 22,
                 fontWeight: FontWeight.bold,
                 color: Color(0xFF001F3F)),
           ),
@@ -916,7 +916,7 @@ SliverToBoxAdapter _buildMilitarySection(context) {
           Text(
             "Remaining  Shifts = ${shiftsinArmy} Shift",
             style: TextStyle(
-                fontSize: 25,
+                fontSize: 22,
                 fontWeight: FontWeight.bold,
                 color: Color(0xFF001F3F)),
           ),
