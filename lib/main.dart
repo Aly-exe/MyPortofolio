@@ -1,4 +1,4 @@
-import "dart:html" as html ;
+import "dart:html" as html;
 import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
@@ -6,8 +6,8 @@ import 'package:flutter/scheduler.dart' show timeDilation;
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:my_portofoli/widgets/contact_form.dart';
 import 'package:my_portofoli/widgets/social_media_icons.dart';
+import 'package:percent_indicator/circular_percent_indicator.dart';
 import 'package:url_launcher/url_launcher.dart';
-
 
 void main() {
   html.document.getElementById("loader")!.remove(); // to remove loader
@@ -74,6 +74,7 @@ class _PortfolioHomePageState extends State<PortfolioHomePage>
           _buildHeroSection(),
           _buildSkillsSection(),
           _buildProjectsSection(),
+          _buildMilitarySection(context),
           _buildContactSection(),
         ],
       ),
@@ -111,7 +112,7 @@ class _PortfolioHomePageState extends State<PortfolioHomePage>
       pinned: true,
       flexibleSpace: FlexibleSpaceBar(
         title: Padding(
-          padding: const EdgeInsets.symmetric(horizontal:8.0),
+          padding: const EdgeInsets.symmetric(horizontal: 8.0),
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
@@ -208,7 +209,9 @@ class _PortfolioHomePageState extends State<PortfolioHomePage>
   SliverToBoxAdapter _buildHeroSection() {
     return SliverToBoxAdapter(
       child: Container(
-        height: MediaQuery.of(context).size.width <= 400 ?MediaQuery.of(context).size.height * 1.25:MediaQuery.of(context).size.height * 0.9,
+        height: MediaQuery.of(context).size.width <= 400
+            ? MediaQuery.of(context).size.height * 1.25
+            : MediaQuery.of(context).size.height * 0.9,
         decoration: BoxDecoration(
           gradient: LinearGradient(
             colors: [navyColor, skyBlueColor],
@@ -220,7 +223,7 @@ class _PortfolioHomePageState extends State<PortfolioHomePage>
           children: [
             Positioned(
               top: 50,
-              right:MediaQuery.of(context).size.width <= 400 ?30: 50,
+              right: MediaQuery.of(context).size.width <= 400 ? 30 : 50,
               child: AnimatedBuilder(
                 animation: _controller,
                 builder: (_, child) {
@@ -235,7 +238,7 @@ class _PortfolioHomePageState extends State<PortfolioHomePage>
             ),
             Positioned(
               top: 50,
-              left: MediaQuery.of(context).size.width <= 400 ?40:100,
+              left: MediaQuery.of(context).size.width <= 400 ? 40 : 100,
               child: AnimatedBuilder(
                 animation: _controller,
                 builder: (_, child) {
@@ -250,7 +253,9 @@ class _PortfolioHomePageState extends State<PortfolioHomePage>
             ),
             Positioned(
               top: 250,
-              left: MediaQuery.of(context).size.width <= 400 ?150:MediaQuery.of(context).size.width * 0.9,
+              left: MediaQuery.of(context).size.width <= 400
+                  ? 150
+                  : MediaQuery.of(context).size.width * 0.9,
               child: AnimatedBuilder(
                 animation: _controller,
                 builder: (_, child) {
@@ -843,4 +848,197 @@ class _ProjectCardState extends State<ProjectCard> {
       ),
     );
   }
+}
+
+SliverToBoxAdapter _buildMilitarySection(context) {
+  DateTime endTime = DateTime(2026, 5, 25);
+  DateTime startDate = DateTime.now();
+  Duration difference = endTime.difference(startDate);
+  double remiderDays = difference.inDays.toDouble();
+  double reminderPercentage = (365.0 - remiderDays) / 365.0;
+  int reminderWeeks = ((difference.inDays) / 7).ceil();
+  int shiftsinArmy = (reminderWeeks / 2).ceil();
+  return SliverToBoxAdapter(
+    child: Container(
+      padding: const EdgeInsets.symmetric(vertical: 80, horizontal: 20),
+      // color: lightBlueColor,
+      child: Column(
+        children: [
+          const Text(
+            'Military Section',
+            style: TextStyle(
+              fontSize: 36,
+              fontWeight: FontWeight.bold,
+              color: Colors.black87,
+            ),
+          ),
+          const SizedBox(height: 10),
+          Container(
+            width: 100,
+            height: 4,
+            color: Colors.lightBlue,
+          ),
+          const SizedBox(height: 50),
+          Text(
+            "! علي في الجيش دلوقتي",
+            style: TextStyle(
+                fontSize: 25,
+                fontWeight: FontWeight.bold,
+                color: Color(0xFF001F3F)),
+          ),
+          const SizedBox(height: 20),
+          MediaQuery.of(context).size.width >= 370.0
+              ? MilitaryDesktopView(
+                  shiftsinArmy: shiftsinArmy,
+                  reminderWeeks: reminderWeeks,
+                  reminderPercentage: reminderPercentage)
+              : MilitaryMobileView(
+                  shiftsinArmy: shiftsinArmy,
+                  reminderWeeks: reminderWeeks,
+                  reminderPercentage: reminderPercentage),
+          const SizedBox(height: 20),
+          Text(
+            "Remaining  Days = ${remiderDays} Day",
+            style: TextStyle(
+                fontSize: 25,
+                fontWeight: FontWeight.bold,
+                color: Color(0xFF001F3F)),
+          ),
+          const SizedBox(height: 20),
+          Text(
+            "Remaining  Weeks = ${reminderWeeks} Week",
+            style: TextStyle(
+                fontSize: 25,
+                fontWeight: FontWeight.bold,
+                color: Color(0xFF001F3F)),
+          ),
+          const SizedBox(height: 20),
+          Text(
+            "Remaining  Shifts = ${shiftsinArmy} Shift",
+            style: TextStyle(
+                fontSize: 25,
+                fontWeight: FontWeight.bold,
+                color: Color(0xFF001F3F)),
+          ),
+        ],
+      ),
+    ),
+  );
+}
+
+Widget MilitaryDesktopView({
+  required int shiftsinArmy,
+  required int reminderWeeks,
+  required double reminderPercentage,
+}) {
+  return Padding(
+    padding: const EdgeInsets.symmetric(horizontal: 30),
+    child: Row(
+      children: [
+        Column(
+          children: [
+            Text(
+              "Done",
+              style: TextStyle(
+                  fontSize: 25,
+                  fontWeight: FontWeight.bold,
+                  color: Color(0xFF001F3F)),
+            ),
+            const SizedBox(height: 20),
+            CircularPercentIndicator(
+              radius: 100.0,
+              lineWidth: 20.0,
+              percent: reminderPercentage,
+              center: Text(
+                "${((reminderPercentage * 100).floorToDouble())}%",
+                style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+              ),
+              progressColor: Colors.green,
+            ),
+          ],
+        ),
+        Spacer(),
+        Column(
+          children: [
+            Text(
+              "Remaining",
+              style: TextStyle(
+                  fontSize: 25,
+                  fontWeight: FontWeight.bold,
+                  color: Color(0xFF001F3F)),
+            ),
+            const SizedBox(height: 20),
+            CircularPercentIndicator(
+              radius: 100.0,
+              lineWidth: 20.0,
+              percent: 1.0 - reminderPercentage,
+              center: Text(
+                "${100 - ((reminderPercentage * 100).floorToDouble())}%",
+                style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+              ),
+              progressColor: Color(0xffEB5B00),
+            ),
+          ],
+        )
+      ],
+    ),
+  );
+}
+
+Widget MilitaryMobileView({
+  required int shiftsinArmy,
+  required int reminderWeeks,
+  required double reminderPercentage,
+}) {
+  return Column(
+    children: [
+      Column(
+        children: [
+          Text(
+            "Done",
+            style: TextStyle(
+                fontSize: 25,
+                fontWeight: FontWeight.bold,
+                color: Color(0xFF001F3F)),
+          ),
+          const SizedBox(height: 20),
+          CircularPercentIndicator(
+            radius: 100.0,
+            lineWidth: 20.0,
+            percent: reminderPercentage,
+            center: Text(
+              "${((reminderPercentage * 100).floorToDouble())}%",
+              style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+            ),
+            progressColor: Colors.green,
+          ),
+        ],
+      ),
+      const SizedBox(
+        height: 40,
+      ),
+      Column(
+        children: [
+          Text(
+            "Remaining",
+            style: TextStyle(
+                fontSize: 25,
+                fontWeight: FontWeight.bold,
+                color: Color(0xFF001F3F)),
+          ),
+          const SizedBox(height: 20),
+          CircularPercentIndicator(
+            radius: 100.0,
+            lineWidth: 20.0,
+            percent: 1.0 - reminderPercentage,
+            center: Text(
+              "${100 - ((reminderPercentage * 100).floorToDouble())}%",
+              style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+            ),
+            progressColor: Color(0xffEB5B00),
+          ),
+        ],
+      )
+    ],
+  );
 }
