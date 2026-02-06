@@ -332,32 +332,6 @@ class _PortfolioHomePageState extends State<PortfolioHomePage>
                       ),
                     ),
                   ),
-                  // const SizedBox(height: 40),
-                  // ElevatedButton(
-                  //   style: ElevatedButton.styleFrom(
-                  //     backgroundColor: Colors.white,
-                  //     foregroundColor: navyColor,
-                  //     padding: const EdgeInsets.symmetric(
-                  //         horizontal: 30, vertical: 15),
-                  //     shape: RoundedRectangleBorder(
-                  //       borderRadius: BorderRadius.circular(30),
-                  //     ),
-                  //   ),
-                  //   onPressed: () {
-                  //     _scrollController.animateTo(
-                  //       MediaQuery.of(context).size.height * 3.5,
-                  //       duration: const Duration(milliseconds: 500),
-                  //       curve: Curves.easeInOut,
-                  //     );
-                  //   },
-                  //   child: const Text(
-                  //     'Hire Me',
-                  //     style: TextStyle(
-                  //       fontSize: 18,
-                  //       fontWeight: FontWeight.bold,
-                  //     ),
-                  //   ),
-                  // ),
                 ],
               ),
             ),
@@ -472,6 +446,7 @@ class _PortfolioHomePageState extends State<PortfolioHomePage>
                   color: navyColor,
                   accentColor: skyBlueColor,
                   SourceCodeLink: "https://github.com/Aly-exe/Agro",
+                  DownloadLink: "",
                 ),
                 ProjectCard(
                   title: 'Kora Byte',
@@ -483,6 +458,7 @@ class _PortfolioHomePageState extends State<PortfolioHomePage>
                   color: navyColor,
                   accentColor: skyBlueColor,
                   SourceCodeLink: "https://github.com/Aly-exe/Kora_Byte",
+                  DownloadLink: "https://www.mediafire.com/file/v4lvu9mpp138c2s/KoraByte.apk/file",
                 ),
                 ProjectCard(
                   title: 'Quiz Me App',
@@ -494,6 +470,7 @@ class _PortfolioHomePageState extends State<PortfolioHomePage>
                   color: navyColor,
                   accentColor: skyBlueColor,
                   SourceCodeLink: "https://github.com/Aly-exe/Quiz_App",
+                  DownloadLink: "",
                 ),
               ],
             ),
@@ -710,8 +687,9 @@ class ProjectCard extends StatefulWidget {
   final Color color;
   final Color accentColor;
   final String SourceCodeLink;
+  String? DownloadLink;
 
-  const ProjectCard({
+   ProjectCard({
     super.key,
     required this.title,
     required this.description,
@@ -720,6 +698,7 @@ class ProjectCard extends StatefulWidget {
     required this.color,
     required this.accentColor,
     required this.SourceCodeLink,
+    this.DownloadLink
   });
 
   @override
@@ -737,7 +716,7 @@ class _ProjectCardState extends State<ProjectCard> {
       child: AnimatedContainer(
         duration: const Duration(milliseconds: 300),
         width: 350,
-        height: _isHovered ? 550 : 500,
+        height: _isHovered || MediaQuery.of(context).size.width <= 400? 550 : 500,
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(20),
@@ -812,18 +791,20 @@ class _ProjectCardState extends State<ProjectCard> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        // ElevatedButton(
-                        //   style: ElevatedButton.styleFrom(
-                        //     backgroundColor: widget.color,
-                        //     foregroundColor: Colors.white,
-                        //     shape: RoundedRectangleBorder(
-                        //       borderRadius: BorderRadius.circular(20),
-                        //     ),
-                        //   ),
-                        //   onPressed: () {},
-                        //   child: const Text('View Project'),
-                        // ),
-                        // const SizedBox(width: 10),
+                        widget.DownloadLink == "" ? SizedBox() : ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: widget.color,
+                            foregroundColor: Colors.white,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(20),
+                            ),
+                          ),
+                          onPressed: () async{
+                            await launchUrl(Uri.parse(widget.DownloadLink!));
+                          },
+                          child: const Text('Download App'),
+                        ),
+                        const SizedBox(width: 10),
                         OutlinedButton(
                           style: OutlinedButton.styleFrom(
                             foregroundColor: widget.color,
