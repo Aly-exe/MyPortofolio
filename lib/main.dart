@@ -470,7 +470,7 @@ class _PortfolioHomePageState extends State<PortfolioHomePage>
                   color: navyColor,
                   accentColor: skyBlueColor,
                   SourceCodeLink: "https://github.com/Aly-exe/Quiz_App",
-                  DownloadLink: "",
+                  DownloadLink: "https://www.mediafire.com/file/ttkpt7npu4rdhvz/Quiz_Me.apk/file",
                 ),
               ],
             ),
@@ -784,8 +784,8 @@ class _ProjectCardState extends State<ProjectCard> {
                       color: Colors.black54,
                     ),
                   ),
-                  const SizedBox(height: 10),
-                  AnimatedOpacity(
+                  const SizedBox(height: 20),
+                  MediaQuery.of(context).size.width > 380 ? AnimatedOpacity(
                     opacity: _isHovered ? 1 : 0,
                     duration: const Duration(milliseconds: 300),
                     child: Row(
@@ -820,7 +820,40 @@ class _ProjectCardState extends State<ProjectCard> {
                         ),
                       ],
                     ),
-                  ),
+                  ): Container(
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        widget.DownloadLink == "" ? SizedBox() : ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: widget.color,
+                            foregroundColor: Colors.white,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(20),
+                            ),
+                          ),
+                          onPressed: () async{
+                            await launchUrl(Uri.parse(widget.DownloadLink!));
+                          },
+                          child: const Text('Download App'),
+                        ),
+                        const SizedBox(width: 10),
+                        OutlinedButton(
+                          style: OutlinedButton.styleFrom(
+                            foregroundColor: widget.color,
+                            side: BorderSide(color: widget.color),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(20),
+                            ),
+                          ),
+                          onPressed: () async {
+                            await launchUrl(Uri.parse(widget.SourceCodeLink));
+                          },
+                          child: const Text('Source Code'),
+                        ),
+                      ],
+                    ),
+                  )
                 ],
               ),
             ),
