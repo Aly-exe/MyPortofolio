@@ -20,14 +20,12 @@ class SocialMediaIcons extends StatelessWidget {
         SocialMediaIconButton(
           icon: FontAwesomeIcons.linkedin,
           iconColor: Colors.blue,
-          link:
-              "https://www.linkedin.com/in/ali-sayed-8a8b81220/",
+          link: "https://www.linkedin.com/in/ali-sayed-8a8b81220/",
         ),
         SocialMediaIconButton(
           icon: FontAwesomeIcons.facebook,
           iconColor: Colors.blue,
-          link:
-              "https://www.facebook.com/profile.php?id=100026765389745",
+          link: "https://www.facebook.com/profile.php?id=100026765389745",
         ),
         SocialMediaIconButton(
           icon: FontAwesomeIcons.instagram,
@@ -42,8 +40,7 @@ class SocialMediaIcons extends StatelessWidget {
         SocialMediaIconButton(
           icon: FontAwesomeIcons.fileLines,
           iconColor: Colors.black87,
-          link:
-              "https://drive.google.com/file/d/1XB2UP3P81UIyk68rsrpNzoaoEhr1nmIH/view?usp=drive_link",
+          link:"https://drive.google.com/drive/folders/1XoJD8y3QPN1yrsUFf8J7wST5wbu5sPFg?usp=drive_link",
         ),
       ],
     );
