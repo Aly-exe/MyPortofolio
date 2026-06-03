@@ -1,13 +1,11 @@
-import "dart:html" as html;
+import 'package:web/web.dart' as html;
 import 'dart:math' as math;
-
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart' show timeDilation;
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:my_portofoli/view/home_screen.dart';
 import 'package:my_portofoli/widgets/contact_form.dart';
 import 'package:my_portofoli/widgets/social_media_icons.dart';
-import 'package:percent_indicator/circular_percent_indicator.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 void main() {
