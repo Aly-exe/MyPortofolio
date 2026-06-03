@@ -40,7 +40,7 @@ class SocialMediaIcons extends StatelessWidget {
         SocialMediaIconButton(
           icon: FontAwesomeIcons.fileLines,
           iconColor: Colors.black87,
-          link:"https://drive.google.com/drive/folders/1XoJD8y3QPN1yrsUFf8J7wST5wbu5sPFg?usp=drive_link",
+          link:"https://drive.google.com/drive/folders/1XoJD8y3QPN1yrsUFf8J7wST5wbu5sPFg?usp=sharing",
         ),
       ],
     );

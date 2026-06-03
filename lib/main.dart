@@ -96,7 +96,7 @@ class _PortfolioHomePageState extends State<PortfolioHomePage>
         ),
         onPressed: () async {
           await launchUrl(Uri.parse(
-              'https://drive.google.com/drive/folders/1XoJD8y3QPN1yrsUFf8J7wST5wbu5sPFg?usp=drive_link'));
+              'https://drive.google.com/drive/folders/1XoJD8y3QPN1yrsUFf8J7wST5wbu5sPFg?usp=sharing'));
         },
       ),
     );
